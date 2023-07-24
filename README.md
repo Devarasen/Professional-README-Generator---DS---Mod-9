@@ -33,3 +33,7 @@ Special thanks to all my tutors.
 ## License
 
 MIT License
+
+## Future Direction
+
+At the moment only a limited selection of badges are available to be generated in the readME file. Future improvement will be to provide more options of licenses for users to choose from, and subsequently the corresponding badges.
