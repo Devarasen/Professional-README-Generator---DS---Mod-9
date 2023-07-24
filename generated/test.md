@@ -1,10 +1,10 @@
-# ${title}
+# test
 
-${badges}
+[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 
 ## Description
 
-${description}
+test
 
 ## Table of Contents
 
@@ -17,32 +17,33 @@ ${description}
 
 ## Installation
 
-${installation}
+test
 
 ## Usage
 
-${usage}
+test
 
 ## License
 
-${license}
+Mozilla Public License 2.0
 
 ## Contributing
 
-${contribution}
+test
 
 ## Tests
 
-${test}
+test
 
 ## Questions
 
-Github username: ${github}
+Github username: Devarasen
 
-Github page: https://github.com/${github}
+Github page: https://github.com/Devarasen
 
-Email Address: ${email}
+Email Address: devarasen@gmail.com
 
 A link to my Github repo is provided if you would like to check out my projects.
 
 If you have any additional questions, please send me an email to the email address stated above.
+

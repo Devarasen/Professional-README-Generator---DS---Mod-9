@@ -20,6 +20,8 @@ const mozillaBadge = "[![License: MPL 2.0](https://img.shields.io/badge/License-
 const generateReadMe = ({ title, description, installation, usage, contribution, test, license, github, email, badges }) =>
 `# ${title}
 
+${badges}
+
 ## Description
 
 ${description}
@@ -28,8 +30,10 @@ ${description}
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
 - [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 
@@ -39,11 +43,7 @@ ${installation}
 
 ${usage}
 
-## Credits
-
 ## License
-
-${badges}
 
 ${license}
 
@@ -57,9 +57,15 @@ ${test}
 
 ## Questions
 
+Github username: ${github}
+
 Github page: https://github.com/${github}
 
 Email Address: ${email}
+
+A link to my Github repo is provided if you would like to check out my projects.
+
+If you have any additional questions, please send me an email to the email address stated above.
 
 `;
 
@@ -133,10 +139,12 @@ inquirer
 .then((answers) => {
   console.log(answers);
 
-  const badges = badgeRender(answers.license);
+  console.log(answers.license);
+
+  const badges = badgeRender(answers.license[0]);
 
   const readMeContent = generateReadMe({ ...answers, badges});
 
   fs.writeFile(`./generated/${answers.title}.md`, readMeContent, (err) =>
-        err ? console.log(err) : console.log('Successfully created readMe doc!'))
+        err ? console.log(err) : console.log('Successfully created readMe doc in generated folder!'))
 });
