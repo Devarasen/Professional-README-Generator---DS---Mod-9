@@ -15,7 +15,7 @@ const boostBadge = "[![License](https://img.shields.io/badge/License-Boost_1.0-l
 const mozillaBadge = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
 
 
-// TODO: Readme template
+// Readme template
 
 const generateReadMe = ({ title, description, installation, usage, contribution, test, license, github, email, badges }) =>
 `# ${title}
@@ -63,6 +63,9 @@ Email Address: ${email}
 
 `;
 
+
+// Selecting right badge based on user answers
+
 function badgeRender(license) {
     if (license === 'Apache License 2.0') {
         return apacheBadge;
@@ -70,8 +73,10 @@ function badgeRender(license) {
         return mitBadge;
     } else if (license === 'Boost Software License 1.0') {
         return boostBadge;
-    } else {
+    } else if (license === 'Mozilla Public License 2.0') {
         return mozillaBadge;
+    } else {
+        return "[![License](https://img.shields.io/badge/License-Unknown-red.svg)](https://your-license-url.com)";
     }
 }
 
