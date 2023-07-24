@@ -9,6 +9,8 @@ This project will generate a customized readMe file for users.
 Walkthrough video will show instructions on how to create your own readMe file using this project.
 Link: https://drive.google.com/file/d/1UJJtuDQzD6q8spkB_VMyCEZezFTuFiOQ/view?usp=sharing
 
+![Screenshot](./assets/Project%20screenshot.PNG)
+
 ## Table of Contents
 
 - [Installation](#installation)
