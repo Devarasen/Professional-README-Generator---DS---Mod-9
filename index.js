@@ -120,7 +120,7 @@ inquirer
         name: 'test',
     },
     {
-        type: 'checkbox',
+        type: 'list',
         message: 'What license are you using?',
         name: 'license',
         choices: ['Apache License 2.0','MIT License','Boost Software License 1.0','Mozilla Public License 2.0'],
@@ -141,10 +141,10 @@ inquirer
 
   console.log(answers.license);
 
-  const badges = badgeRender(answers.license[0]);
+  const badges = badgeRender(answers.license);
 
   const readMeContent = generateReadMe({ ...answers, badges});
 
-  fs.writeFile(`./generated/${answers.title}.md`, readMeContent, (err) =>
-        err ? console.log(err) : console.log('Successfully created readMe doc in generated folder!'))
+  fs.writeFile(`./sample/${answers.title}.md`, readMeContent, (err) =>
+        err ? console.log(err) : console.log('Successfully created readMe doc in sample folder!'))
 });
