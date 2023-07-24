@@ -1,11 +1,23 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
+
 const fs = require(`fs`);
 const inquirer = require('inquirer');
-const { title } = require('process');
+
+
+// Badge constants
+
+const apacheBadge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+
+const mitBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+
+const boostBadge = "[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
+
+const mozillaBadge = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
 
 
 // TODO: Readme template
-const generateReadMe = ({ title, description, installation, usage, contribution, test, license, github, email }) =>
+
+const generateReadMe = ({ title, description, installation, usage, contribution, test, license, github, email, badges }) =>
 `# ${title}
 
 ## Description
@@ -31,9 +43,9 @@ ${usage}
 
 ## License
 
-${license}
+${badges}
 
-## Badges
+${license}
 
 ## Contributing
 
@@ -51,8 +63,19 @@ Email Address: ${email}
 
 `;
 
+function badgeRender(license) {
+    if (license === 'Apache License 2.0') {
+        return apacheBadge;
+    } else if (license === 'MIT License') {
+        return mitBadge;
+    } else if (license === 'Boost Software License 1.0') {
+        return boostBadge;
+    } else {
+        return mozillaBadge;
+    }
+}
 
-// TODO: Create an array of questions for user input
+// Create an array of questions for user input and render readMe file in generated folder
 inquirer
   .prompt([
     {
@@ -105,16 +128,10 @@ inquirer
 .then((answers) => {
   console.log(answers);
 
-//   fs.writeFile(`${answers.title}.md`, htmlPageContent, (err) =>
-//         err ? console.log(err) : console.log('Successfully created html doc!'))
+  const badges = badgeRender(answers.license);
+
+  const readMeContent = generateReadMe({ ...answers, badges});
+
+  fs.writeFile(`./generated/${answers.title}.md`, readMeContent, (err) =>
+        err ? console.log(err) : console.log('Successfully created readMe doc!'))
 });
-  
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
