@@ -1,9 +1,58 @@
 // TODO: Include packages needed for this application
 const fs = require(`fs`);
+const inquirer = require('inquirer');
+const { title } = require('process');
+
+
+// TODO: Readme template
+const generateReadMe = ({ title, description, installation, usage, contribution, test, license, github, email }) =>
+`# ${title}
+
+## Description
+
+${description}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
+## Installation
+
+${installation}
+
+## Usage
+
+${usage}
+
+## Credits
+
+## License
+
+${license}
+
+## Badges
+
+## Contributing
+
+${contribution}
+
+## Tests
+
+${test}
+
+## Questions
+
+Github page: https://github.com/${github}
+
+Email Address: ${email}
+
+`;
+
 
 // TODO: Create an array of questions for user input
-const questions = [];
-
 inquirer
   .prompt([
     {
@@ -55,11 +104,9 @@ inquirer
 ])
 .then((answers) => {
   console.log(answers);
-  
-  const htmlPageContent = generateHTML(answers);
 
-  fs.writeFile(`${answers.title}.md`, htmlPageContent, (err) =>
-        err ? console.log(err) : console.log('Successfully created html doc!'))
+//   fs.writeFile(`${answers.title}.md`, htmlPageContent, (err) =>
+//         err ? console.log(err) : console.log('Successfully created html doc!'))
 });
   
 
